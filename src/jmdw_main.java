@@ -134,34 +134,6 @@ public class jmdw_main {
 		text_Speed = new Text(shlJavaMdw, SWT.BORDER | SWT.RIGHT);
 		text_Speed.setBounds(160, 197, 118, 21);
 		
-		Button btnSolve = new Button(shlJavaMdw, SWT.NONE);
-		btnSolve.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseDoubleClick(MouseEvent e) {
-				//String s = new String();
-				//s = text_L.getText();
-				double L = Double.parseDouble(text_L.getText());
-				double B = Double.parseDouble(text_B.getText());
-				double T = Double.parseDouble(text_T.getText());
-				double Tf = Double.parseDouble(text_Tf.getText());
-				double delta = Double.parseDouble(text_delta.getText());
-				double I = Double.parseDouble(text_I.getText());
-				double Speed = Double.parseDouble(text_Speed.getText());
-				double hwaves = Double.parseDouble(HeightOfWaves.getText());
-				char[] stype = (text_L.getText()).toCharArray();
-				char[] sclass = (text_B.getText()).toCharArray();
-				Ship ship = new Ship();
-				ship.set(L, B, T, Tf, delta, I, Speed, hwaves, stype, sclass);
-				
-			}
-		});
-		btnSolve.setBounds(10, 329, 200, 25);
-		btnSolve.setText("Solve");
-		
-		Button btnSaveResults = new Button(shlJavaMdw, SWT.NONE);
-		btnSaveResults.setBounds(224, 329, 200, 25);
-		btnSaveResults.setText("Save results");
-		
 		Group grpResults = new Group(shlJavaMdw, SWT.NONE);
 		grpResults.setText("Results");
 		grpResults.setBounds(10, 224, 414, 99);
@@ -191,8 +163,39 @@ public class jmdw_main {
 		lblMdw.setBounds(214, 41, 55, 15);
 		lblMdw.setText("Mdw");
 		
-		Label lblNewLabel_3 = new Label(grpResults, SWT.BORDER | SWT.RIGHT);
+		final Label lblNewLabel_3 = new Label(grpResults, SWT.BORDER | SWT.RIGHT);
 		lblNewLabel_3.setBounds(275, 41, 129, 15);
+		
+		Button btnSolve = new Button(shlJavaMdw, SWT.NONE);
+		btnSolve.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseDown(MouseEvent e) {
+				//String s = new String();
+				//s = text_L.getText();
+				double L = Double.parseDouble(text_L.getText());
+				double B = Double.parseDouble(text_B.getText());
+				double T = Double.parseDouble(text_T.getText());
+				double Tf = Double.parseDouble(text_Tf.getText());
+				double delta = Double.parseDouble(text_delta.getText());
+				double I = Double.parseDouble(text_I.getText());
+				double Speed = Double.parseDouble(text_Speed.getText());
+				double hwaves = Double.parseDouble(HeightOfWaves.getText());
+				char[] stype = (text_L.getText()).toCharArray();
+				char[] sclass = (text_B.getText()).toCharArray();
+				Ship ship = new Ship();
+				ship.set(L, B, T, Tf, delta, I, Speed, hwaves, stype, sclass);
+				double LBT = L*B*T;
+				String s = Double.toString(LBT);
+				lblNewLabel_3.setText(s);
+				
+			}
+		});
+		btnSolve.setBounds(10, 329, 200, 25);
+		btnSolve.setText("Solve");
+		
+		Button btnSaveResults = new Button(shlJavaMdw, SWT.NONE);
+		btnSaveResults.setBounds(224, 329, 200, 25);
+		btnSaveResults.setText("Save results");
 		
 		txtMomentOfInertia = new Text(shlJavaMdw, SWT.READ_ONLY | SWT.MULTI);
 		txtMomentOfInertia.setText("Moment of inertia\r\nof cross section, m^4");
