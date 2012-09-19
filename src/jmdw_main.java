@@ -34,31 +34,32 @@ public class jmdw_main {
 		grpShipsClass.setText("Ship's class");
 		grpShipsClass.setBounds(10, 10, 144, 138);
 
-		Button button_0 = new Button(grpShipsClass, SWT.RADIO);
+		final Button button_0 = new Button(grpShipsClass, SWT.RADIO);
+		button_0.setSelection(true);
 		button_0.setBounds(10, 23, 44, 16);
 		button_0.setText("\u041C");
 
-		Button button_1 = new Button(grpShipsClass, SWT.RADIO);
+		final Button button_1 = new Button(grpShipsClass, SWT.RADIO);
 		button_1.setBounds(10, 45, 44, 16);
 		button_1.setText("\u041E");
 
-		Button button_2 = new Button(grpShipsClass, SWT.RADIO);
+		final Button button_2 = new Button(grpShipsClass, SWT.RADIO);
 		button_2.setBounds(10, 67, 44, 16);
 		button_2.setText("\u0420");
 
-		Button button_3 = new Button(grpShipsClass, SWT.RADIO);
+		final Button button_3 = new Button(grpShipsClass, SWT.RADIO);
 		button_3.setBounds(10, 89, 44, 16);
 		button_3.setText("\u041B");
 
-		Button button_4 = new Button(grpShipsClass, SWT.RADIO);
+		final Button button_4 = new Button(grpShipsClass, SWT.RADIO);
 		button_4.setBounds(60, 23, 64, 16);
 		button_4.setText("\u041C-\u0421\u041F");
 
-		Button button_5 = new Button(grpShipsClass, SWT.RADIO);
+		final Button button_5 = new Button(grpShipsClass, SWT.RADIO);
 		button_5.setBounds(60, 45, 64, 16);
 		button_5.setText("\u041C-\u041F\u0420");
 
-		Button button_6 = new Button(grpShipsClass, SWT.RADIO);
+		final Button button_6 = new Button(grpShipsClass, SWT.RADIO);
 		button_6.setBounds(60, 67, 64, 16);
 		button_6.setText("\u041E-\u041F\u0420");
 		
@@ -73,15 +74,16 @@ public class jmdw_main {
 		grpShipsType.setText("Ship's type");
 		grpShipsType.setBounds(160, 10, 118, 138);
 		
-		Button btnCargoShip = new Button(grpShipsType, SWT.RADIO);
+		final Button btnCargoShip = new Button(grpShipsType, SWT.RADIO);
+		btnCargoShip.setSelection(true);
 		btnCargoShip.setBounds(10, 23, 105, 16);
 		btnCargoShip.setText("cargo ship");
 		
-		Button btnPassangerShip = new Button(grpShipsType, SWT.RADIO);
+		final Button btnPassangerShip = new Button(grpShipsType, SWT.RADIO);
 		btnPassangerShip.setBounds(10, 45, 105, 16);
 		btnPassangerShip.setText("passanger ship");
 		
-		Button btnTowingShip = new Button(grpShipsType, SWT.RADIO);
+		final Button btnTowingShip = new Button(grpShipsType, SWT.RADIO);
 		btnTowingShip.setBounds(10, 67, 105, 16);
 		btnTowingShip.setText("towing ship");
 		
@@ -180,13 +182,35 @@ public class jmdw_main {
 				double I = Double.parseDouble(text_I.getText());
 				double Speed = Double.parseDouble(text_Speed.getText());
 				double hwaves = Double.parseDouble(HeightOfWaves.getText());
-				char[] stype = (text_L.getText()).toCharArray();
-				char[] sclass = (text_B.getText()).toCharArray();
+				//char[] stype = (text_L.getText()).toCharArray();
+				//char[] sclass = (text_B.getText()).toCharArray();
+				
+				String stype = null;
+				if(button_0.getSelection()) stype = "Ì";
+				if(button_1.getSelection()) stype = "Î";
+				if(button_2.getSelection()) stype = "Ð";
+				if(button_3.getSelection()) stype = "Ë";
+				if(button_4.getSelection()) stype = "Ì-ÑÏ";
+				if(button_5.getSelection()) stype = "Ì-ÏÐ";
+				if(button_6.getSelection()) stype = "Î-ÏÐ";
+				
+				String sclass = null;
+				if(btnCargoShip.getSelection()) sclass = "cargo ship";
+				if(btnPassangerShip.getSelection()) sclass = "passenger ship";
+				if(btnTowingShip.getSelection()) sclass = "towing ship";
+				
 				Ship ship = new Ship();
 				ship.set(L, B, T, Tf, delta, I, Speed, hwaves, stype, sclass);
+				/**
 				double LBT = L*B*T;
 				String s = Double.toString(LBT);
 				lblNewLabel_3.setText(s);
+				*/
+				double LBT = ship.getLBT();
+				String s = Double.toString(LBT);
+				lblNewLabel_3.setText(s);
+				
+				
 				
 			}
 		});
