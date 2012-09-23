@@ -1,5 +1,6 @@
 
 public class Ship {
+	private static final double g = 9.81;
 	/*
 	private double L;
 	private double B;
@@ -35,7 +36,6 @@ public class Ship {
 		
 		if ((sclass == 1) || (sclass ==2) || (sclass ==3) || (sclass == 4)) {
 			
-			double g = 9.81;
 			double D = g*delta*L*B*T;
 			double kd = Math.exp(-1.6*(1-delta));
 			double eps = 0.0;
@@ -155,7 +155,7 @@ public class Ship {
 				if (h < 3.0)					k3 = k3_2;
 				if (h > 3.5)					k3 = k3_1;
 				if ((h >= 3.0)&&(h <= 3.5))		k3 = k3_2+(k3_1-k3_2)*(h-3.0)/0.5;
-				Mdw = 9.81*k0*k1*k2*k3*delta*B*L*L*h;
+				Mdw = g*k0*k1*k2*k3*delta*B*L*L*h;
 				break;
 			case 6:   //class л-оп
 				k0 = Math.min(1.24-1.7*B/L, 1.0);
@@ -176,7 +176,7 @@ public class Ship {
 				if (h < 2.0)					k3 = k3_2;
 				if (h > 2.5)					k3 = k3_1;
 				if ((h >= 2.0)&&(h <= 2.5))		k3 = k3_2+(k3_1-k3_2)*(h-2.0)/0.5;
-				Mdw = 9.81*k0*k1*k2*k3*delta*B*L*L*h;
+				Mdw = g*k0*k1*k2*k3*delta*B*L*L*h;
 				break;
 			case 7:   //class н-оп
 				k0 = Math.min(1.24-1.7*B/L, 1.0);
@@ -196,7 +196,7 @@ public class Ship {
 				if (h < 1.5)					k3 = k3_2;
 				if (h > 2.0)					k3 = k3_1;
 				if ((h >= 1.5)&&(h <= 2.0))		k3 = k3_2+(k3_1-k3_2)*(h-1.5)/0.5;
-				Mdw = 9.81*k0*k1*k2*k3*delta*B*L*L*h;
+				Mdw = g*k0*k1*k2*k3*delta*B*L*L*h;
 				break;	
 			}
 			}

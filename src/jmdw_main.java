@@ -65,7 +65,7 @@ public class jmdw_main {
 		
 		Label lblHeightOfWaves = new Label(shlJavaMdw, SWT.NONE);
 		lblHeightOfWaves.setBounds(10, 176, 144, 15);
-		lblHeightOfWaves.setText("Height of waves in meters");
+		lblHeightOfWaves.setText("Height of waves, m");
 		
 		HeightOfWaves = new Text(shlJavaMdw, SWT.BORDER | SWT.RIGHT);
 		HeightOfWaves.setBounds(10, 197, 144, 21);
