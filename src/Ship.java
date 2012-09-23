@@ -10,6 +10,10 @@ public class Ship {
 	private int stype;
 	private int sclass;
 	private double h;
+	private double Mv;
+	private double kp;
+	private double My;
+	private double Mdw;
 	
 	// метод задания значений
 	void set(double L, double B, double T, double Tf, double delta, double I, double Speed, double h, int stype, int sclass){
@@ -91,7 +95,7 @@ public class Ship {
 	}
 	double kt = Math.exp(-1.14*(T/(eta*h))*(delta/(2.0*delta+1.0)));
 	double kb = (1.0- Math.exp(-0.19*delta*B/(eta*h)))*(eta*h/(0.19*delta*B));
-	double Mv = 0.255*eps*kd*kt*kb*B*L*L*h;
+	this.Mv = 0.255*eps*kd*kt*kb*B*L*L*h;
 	
 	double ks = 0.0;
 	switch (stype) {
@@ -111,7 +115,7 @@ public class Ship {
 	}
 	double omk = omsr+1.92*kv*Speed/L;
 	k = omk/sigma;
-	double kp = 1+k*k/Math.sqrt((1-k*k)*(1-k*k)+(2*kmu*k)*(2*kmu*k));
+	this.kp = 1+k*k/Math.sqrt((1-k*k)*(1-k*k)+(2*kmu*k)*(2*kmu*k));
 	
 	double Tp = eta*h*(0.68+0.21*kv*Speed/Math.sqrt(L));
 	double b0 = 4.32*Math.sqrt(delta*(B/L)*(T/L));
@@ -122,25 +126,21 @@ public class Ship {
 	if (1.5*Tp < Tf) fi1 = 0;
 	double v0 = (0.336+0.104*kv*Speed/Math.sqrt(L))*v1+0.024*kv*Speed;
 	double ky = 5.3e-4*fi0*sigma*v0;
+	this.My = ky*fi1*D*L;
 	
-	double My = ky*fi1*D*L;
-	
-	double Mdw = kp*Mv+My;
+	this.Mdw = kp*Mv+My;
 	
 	}
 	
 	double getMdw(){
-		double Mdw = 0;
 		return Mdw;
 	}
 	
 	double getMv(){
-		double Mv = 0;
 		return Mv;
 	}
 	
 	double getkp(){
-		double kp = 0;
 		return kp;
 	}
 	
