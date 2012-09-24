@@ -184,19 +184,19 @@ public class jmdw_main {
 				double Speed = Double.parseDouble(text_Speed.getText());
 				double h = Double.parseDouble(HeightOfWaves.getText());
 				
-				int stype = 1;
-				if(button_0.getSelection()) stype = 1;  // M
-				if(button_1.getSelection()) stype = 2;  // Î
-				if(button_2.getSelection()) stype = 3;  // Ð
-				if(button_3.getSelection()) stype = 4;  // Ë
-				if(button_4.getSelection()) stype = 5;  // Ì-ÑÏ
-				if(button_5.getSelection()) stype = 6;  // Ì-ÏÐ
-				if(button_6.getSelection()) stype = 7;  // Î-ÏÐ
-				
 				int sclass = 1;
-				if(btnCargoShip.getSelection())     sclass = 1;
-				if(btnPassangerShip.getSelection()) sclass = 2;
-				if(btnTowingShip.getSelection())    sclass = 3;
+				if(button_0.getSelection()) sclass = 1;  // M
+				if(button_1.getSelection()) sclass = 2;  // Î
+				if(button_2.getSelection()) sclass = 3;  // Ð
+				if(button_3.getSelection()) sclass = 4;  // Ë
+				if(button_4.getSelection()) sclass = 5;  // Ì-ÑÏ
+				if(button_5.getSelection()) sclass = 6;  // Ì-ÏÐ
+				if(button_6.getSelection()) sclass = 7;  // Î-ÏÐ
+				
+				int stype = 1;
+				if(btnCargoShip.getSelection())     stype = 1;
+				if(btnPassangerShip.getSelection()) stype = 2;
+				if(btnTowingShip.getSelection())    stype = 3;
 				
 				Ship ship = new Ship();
 				ship.set(L, B, T, Tf, delta, I, Speed, h, stype, sclass);
