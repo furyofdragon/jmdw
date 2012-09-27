@@ -5,8 +5,8 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.swt.events.MouseAdapter;
-import org.eclipse.swt.events.MouseEvent;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 
 public class jmdw_main {
 	private static Text HeightOfWaves;
@@ -173,8 +173,8 @@ public class jmdw_main {
 		lblNewLabel_3.setBounds(275, 41, 129, 15);
 		
 		Button btnSolve = new Button(shlJavaMdw, SWT.NONE);
-		btnSolve.addMouseListener(new MouseAdapter() {
-			public void mouseDown(MouseEvent e) {
+		btnSolve.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent e) {
 				double L = Double.parseDouble(text_L.getText());
 				double B = Double.parseDouble(text_B.getText());
 				double T = Double.parseDouble(text_T.getText());
@@ -218,7 +218,6 @@ public class jmdw_main {
 				double My = ship.getMy();
 				s = Double.toString(My);
 				lblNewLabel_2.setText(s);
-				
 			}
 		});
 		btnSolve.setBounds(10, 329, 200, 25);
