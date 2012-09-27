@@ -7,6 +7,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 
 public class jmdw_main {
 	private static Text HeightOfWaves;
@@ -173,7 +174,16 @@ public class jmdw_main {
 		lblNewLabel_3.setBounds(275, 41, 129, 15);
 		
 		Button btnSolve = new Button(shlJavaMdw, SWT.NONE);
-		btnSolve.addSelectionListener(new SelectionAdapter() {
+		btnSolve.setBounds(10, 329, 200, 25);
+		btnSolve.setText("Solve");
+		
+		Button btnSaveResults = new Button(shlJavaMdw, SWT.NONE);
+		btnSaveResults.setEnabled(false);
+		btnSaveResults.setBounds(224, 329, 200, 25);
+		btnSaveResults.setText("Save results");
+		
+		
+		SelectionListener btnSolveSelectionListener = new SelectionAdapter(){
 			public void widgetSelected(SelectionEvent e) {
 				double L = Double.parseDouble(text_L.getText());
 				double B = Double.parseDouble(text_B.getText());
@@ -219,14 +229,9 @@ public class jmdw_main {
 				s = Double.toString(My);
 				lblNewLabel_2.setText(s);
 			}
-		});
-		btnSolve.setBounds(10, 329, 200, 25);
-		btnSolve.setText("Solve");
+		};
+		btnSolve.addSelectionListener(btnSolveSelectionListener);
 		
-		Button btnSaveResults = new Button(shlJavaMdw, SWT.NONE);
-		btnSaveResults.setEnabled(false);
-		btnSaveResults.setBounds(224, 329, 200, 25);
-		btnSaveResults.setText("Save results");
 		
 		shlJavaMdw.open();
 		shlJavaMdw.layout();
