@@ -18,7 +18,7 @@ public class jmdw_main {
 	private static Text text_delta;
 	private static Text text_I;
 	private static Text text_Speed;
-	private static Text txtMomentOfInertia;
+	//private static Text txtMomentOfInertia;
 
 	/**
 	 * Launch the application.
@@ -127,9 +127,15 @@ public class jmdw_main {
 		text_delta = new Text(grpShipssCharacteristics, SWT.BORDER | SWT.RIGHT);
 		text_delta.setBounds(56, 108, 76, 21);
 		
+		Label lblMomentOfInertia = new Label(shlJavaMdw, SWT.NONE);
+		lblMomentOfInertia.setBounds(284, 161, 140, 30);
+		lblMomentOfInertia.setText("Moment of inertia\r\nof cross section, m^4");
+		
+		/*
 		txtMomentOfInertia = new Text(shlJavaMdw, SWT.READ_ONLY | SWT.MULTI);
 		txtMomentOfInertia.setText("Moment of inertia\r\nof cross section, m^4");
 		txtMomentOfInertia.setBounds(284, 161, 140, 30);
+		**/
 		
 		text_I = new Text(shlJavaMdw, SWT.BORDER | SWT.RIGHT);
 		text_I.setBounds(284, 197, 140, 21);
