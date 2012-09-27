@@ -145,15 +145,15 @@ public class jmdw_main {
 		grpResults.setText("Results");
 		grpResults.setBounds(10, 224, 414, 99);
 		
-		Label lblMv = new Label(grpResults, SWT.NONE);
+		final Label lblMv = new Label(grpResults, SWT.NONE);
 		lblMv.setBounds(10, 20, 55, 15);
 		lblMv.setText("Mv");
 		
-		Label lblKp = new Label(grpResults, SWT.NONE);
+		final Label lblKp = new Label(grpResults, SWT.NONE);
 		lblKp.setBounds(10, 41, 55, 15);
 		lblKp.setText("kp");
 		
-		Label lblMy = new Label(grpResults, SWT.NONE);
+		final Label lblMy = new Label(grpResults, SWT.NONE);
 		lblMy.setBounds(10, 62, 55, 15);
 		lblMy.setText("My");
 		
@@ -240,6 +240,12 @@ public class jmdw_main {
 				btnCargoShip.setEnabled(true);
 				btnPassangerShip.setEnabled(true);
 				btnTowingShip.setEnabled(true);
+				lblMv.setEnabled(true);
+				lblKp.setEnabled(true);
+				lblMy.setEnabled(true);
+				lblNewLabel_0.setEnabled(true);
+				lblNewLabel_1.setEnabled(true);
+				lblNewLabel_2.setEnabled(true);
 			}
 		};
 		
@@ -249,6 +255,12 @@ public class jmdw_main {
 				btnCargoShip.setEnabled(false);
 				btnPassangerShip.setEnabled(false);
 				btnTowingShip.setEnabled(false);
+				lblMv.setEnabled(false);
+				lblKp.setEnabled(false);
+				lblMy.setEnabled(false);
+				lblNewLabel_0.setEnabled(false);
+				lblNewLabel_1.setEnabled(false);
+				lblNewLabel_2.setEnabled(false);
 			}
 		};
 		
