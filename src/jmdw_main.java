@@ -71,7 +71,7 @@ public class jmdw_main {
 		HeightOfWaves = new Text(shlJavaMdw, SWT.BORDER | SWT.RIGHT);
 		HeightOfWaves.setBounds(10, 197, 144, 21);
 		
-		Group grpShipsType = new Group(shlJavaMdw, SWT.NONE);
+		final Group grpShipsType = new Group(shlJavaMdw, SWT.NONE);
 		grpShipsType.setText("Ship's type");
 		grpShipsType.setBounds(160, 10, 118, 138);
 		
@@ -230,8 +230,37 @@ public class jmdw_main {
 				lblNewLabel_2.setText(s);
 			}
 		};
+		
 		btnSolve.addSelectionListener(btnSolveSelectionListener);
 		
+		
+		SelectionListener leftRadioButtonsSelectionListener = new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent e) {
+				grpShipsType.setEnabled(true);
+				btnCargoShip.setEnabled(true);
+				btnPassangerShip.setEnabled(true);
+				btnTowingShip.setEnabled(true);
+			}
+		};
+		
+		SelectionListener rightRadioButtonsSelectionListener = new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent e) {
+				grpShipsType.setEnabled(false);
+				btnCargoShip.setEnabled(false);
+				btnPassangerShip.setEnabled(false);
+				btnTowingShip.setEnabled(false);
+			}
+		};
+		
+		
+		button_M.addSelectionListener(leftRadioButtonsSelectionListener);
+		button_O.addSelectionListener(leftRadioButtonsSelectionListener);
+		button_R.addSelectionListener(leftRadioButtonsSelectionListener);
+		button_L.addSelectionListener(leftRadioButtonsSelectionListener);
+		
+		button_MSP.addSelectionListener(rightRadioButtonsSelectionListener);
+		button_MPR.addSelectionListener(rightRadioButtonsSelectionListener);
+		button_OPR.addSelectionListener(rightRadioButtonsSelectionListener);
 		
 		shlJavaMdw.open();
 		shlJavaMdw.layout();
