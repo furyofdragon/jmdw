@@ -34,34 +34,34 @@ public class jmdw_main {
 		grpShipsClass.setText("Ship's class");
 		grpShipsClass.setBounds(10, 10, 144, 138);
 
-		final Button button_0 = new Button(grpShipsClass, SWT.RADIO);
-		button_0.setSelection(true);
-		button_0.setBounds(10, 23, 44, 16);
-		button_0.setText("\u041C");
+		final Button button_M = new Button(grpShipsClass, SWT.RADIO);
+		button_M.setSelection(true);
+		button_M.setBounds(10, 23, 44, 16);
+		button_M.setText("\u041C");
 
-		final Button button_1 = new Button(grpShipsClass, SWT.RADIO);
-		button_1.setBounds(10, 45, 44, 16);
-		button_1.setText("\u041E");
+		final Button button_O = new Button(grpShipsClass, SWT.RADIO);
+		button_O.setBounds(10, 45, 44, 16);
+		button_O.setText("\u041E");
 
-		final Button button_2 = new Button(grpShipsClass, SWT.RADIO);
-		button_2.setBounds(10, 67, 44, 16);
-		button_2.setText("\u0420");
+		final Button button_R = new Button(grpShipsClass, SWT.RADIO);
+		button_R.setBounds(10, 67, 44, 16);
+		button_R.setText("\u0420");
 
-		final Button button_3 = new Button(grpShipsClass, SWT.RADIO);
-		button_3.setBounds(10, 89, 44, 16);
-		button_3.setText("\u041B");
+		final Button button_L = new Button(grpShipsClass, SWT.RADIO);
+		button_L.setBounds(10, 89, 44, 16);
+		button_L.setText("\u041B");
 
-		final Button button_4 = new Button(grpShipsClass, SWT.RADIO);
-		button_4.setBounds(60, 23, 64, 16);
-		button_4.setText("\u041C-\u0421\u041F");
+		final Button button_MSP = new Button(grpShipsClass, SWT.RADIO);
+		button_MSP.setBounds(60, 23, 64, 16);
+		button_MSP.setText("\u041C-\u0421\u041F");
 
-		final Button button_5 = new Button(grpShipsClass, SWT.RADIO);
-		button_5.setBounds(60, 45, 64, 16);
-		button_5.setText("\u041C-\u041F\u0420");
+		final Button button_MPR = new Button(grpShipsClass, SWT.RADIO);
+		button_MPR.setBounds(60, 45, 64, 16);
+		button_MPR.setText("\u041C-\u041F\u0420");
 
-		final Button button_6 = new Button(grpShipsClass, SWT.RADIO);
-		button_6.setBounds(60, 67, 64, 16);
-		button_6.setText("\u041E-\u041F\u0420");
+		final Button button_OPR = new Button(grpShipsClass, SWT.RADIO);
+		button_OPR.setBounds(60, 67, 64, 16);
+		button_OPR.setText("\u041E-\u041F\u0420");
 		
 		Label lblHeightOfWaves = new Label(shlJavaMdw, SWT.NONE);
 		lblHeightOfWaves.setBounds(10, 176, 144, 15);
@@ -185,13 +185,13 @@ public class jmdw_main {
 				double h = Double.parseDouble(HeightOfWaves.getText());
 				
 				int sclass = 1;
-				if(button_0.getSelection()) sclass = 1;  // M
-				if(button_1.getSelection()) sclass = 2;  // Î
-				if(button_2.getSelection()) sclass = 3;  // Ð
-				if(button_3.getSelection()) sclass = 4;  // Ë
-				if(button_4.getSelection()) sclass = 5;  // Ì-ÑÏ
-				if(button_5.getSelection()) sclass = 6;  // Ì-ÏÐ
-				if(button_6.getSelection()) sclass = 7;  // Î-ÏÐ
+				if(button_M.getSelection()) sclass = 1;  // M
+				if(button_O.getSelection()) sclass = 2;  // Î
+				if(button_R.getSelection()) sclass = 3;  // Ð
+				if(button_L.getSelection()) sclass = 4;  // Ë
+				if(button_MSP.getSelection()) sclass = 5;  // Ì-ÑÏ
+				if(button_MPR.getSelection()) sclass = 6;  // Ì-ÏÐ
+				if(button_OPR.getSelection()) sclass = 7;  // Î-ÏÐ
 				
 				int stype = 1;
 				if(btnCargoShip.getSelection())     stype = 1;
