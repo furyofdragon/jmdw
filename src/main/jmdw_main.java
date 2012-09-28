@@ -157,21 +157,25 @@ public class jmdw_main {
 		lblMy.setBounds(10, 62, 55, 15);
 		lblMy.setText("My");
 		
-		final Label lblNewLabel_0 = new Label(grpResults, SWT.BORDER | SWT.RIGHT);
-		lblNewLabel_0.setBounds(71, 20, 127, 15);
+		final Text lblNewLabel_0 = new Text(grpResults, SWT.BORDER | SWT.RIGHT);
+		lblNewLabel_0.setEditable(false);
+		lblNewLabel_0.setBounds(71, 20, 127, 21);
 		
-		final Label lblNewLabel_1 = new Label(grpResults, SWT.BORDER | SWT.RIGHT);
-		lblNewLabel_1.setBounds(71, 41, 127, 15);
+		final Text lblNewLabel_1 = new Text(grpResults, SWT.BORDER | SWT.RIGHT);
+		lblNewLabel_1.setEditable(false);
+		lblNewLabel_1.setBounds(71, 41, 127, 21);
 		
-		final Label lblNewLabel_2 = new Label(grpResults, SWT.BORDER | SWT.RIGHT);
-		lblNewLabel_2.setBounds(71, 62, 127, 15);
+		final Text lblNewLabel_2 = new Text(grpResults, SWT.BORDER | SWT.RIGHT);
+		lblNewLabel_2.setEditable(false);
+		lblNewLabel_2.setBounds(71, 62, 127, 21);
 		
 		Label lblMdw = new Label(grpResults, SWT.NONE);
 		lblMdw.setBounds(214, 41, 55, 15);
 		lblMdw.setText("Mdw");
 		
-		final Label lblNewLabel_3 = new Label(grpResults, SWT.BORDER | SWT.RIGHT);
-		lblNewLabel_3.setBounds(275, 41, 129, 15);
+		final Text lblNewLabel_3 = new Text(grpResults, SWT.BORDER | SWT.RIGHT);
+		lblNewLabel_3.setEditable(false);
+		lblNewLabel_3.setBounds(275, 41, 129, 21);
 		
 		Button btnSolve = new Button(shlJavaMdw, SWT.NONE);
 		btnSolve.setBounds(10, 329, 200, 25);
