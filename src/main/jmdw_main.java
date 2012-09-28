@@ -210,6 +210,7 @@ public class jmdw_main {
 				
 				Ship ship = new Ship();
 				ship.set(L, B, T, Tf, delta, I, Speed, h, stype, sclass);
+				ship.solve();
 				
 				String s = null;
 				

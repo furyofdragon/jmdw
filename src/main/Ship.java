@@ -2,7 +2,7 @@ package main;
 
 public class Ship {
 	private static final double g = 9.81;
-	/*
+	//*
 	private double L;
 	private double B;
 	private double T;
@@ -13,7 +13,7 @@ public class Ship {
 	private int stype;
 	private int sclass;
 	private double h;
-	**/
+	//**/
 	private double Mv;
 	private double kp;
 	private double My;
@@ -21,7 +21,7 @@ public class Ship {
 	
 	// метод задания значений
 	void set(double L, double B, double T, double Tf, double delta, double I, double Speed, double h, int stype, int sclass){
-		/*
+		//*
 		this.L = L;
 		this.B = B;
 		this.T = T;
@@ -32,9 +32,11 @@ public class Ship {
 		this.h = h;
 		this.stype = stype;
 		this.sclass = sclass;
-		**/
-		
-		
+		//**/
+	}
+	
+	// метод расчёта
+	void solve(){
 		if ((sclass == 1) || (sclass ==2) || (sclass ==3) || (sclass == 4)) {
 			
 			double D = g*delta*L*B*T;
