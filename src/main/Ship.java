@@ -1,3 +1,4 @@
+package main;
 
 public class Ship {
 	private static final double g = 9.81;
