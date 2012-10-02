@@ -9,6 +9,8 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
+import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.widgets.Control;
 
 public class jmdw_main {
 	private static Text HeightOfWaves;
@@ -28,6 +30,7 @@ public class jmdw_main {
 	public static void main(String[] args) {
 		Display display = Display.getDefault();
 		Shell shlJavaMdw = new Shell();
+		shlJavaMdw.setMinimumSize(new Point(450, 400));
 		shlJavaMdw.setSize(450, 400);
 		shlJavaMdw.setText("Java MDW");
 
@@ -185,6 +188,7 @@ public class jmdw_main {
 		btnSaveResults.setEnabled(false);
 		btnSaveResults.setBounds(224, 329, 200, 25);
 		btnSaveResults.setText("Save results");
+		shlJavaMdw.setTabList(new Control[]{grpShipsClass, grpShipsType, grpShipssCharacteristics, HeightOfWaves, text_Speed, text_I, grpResults, btnSolve, btnSaveResults});
 		
 		
 		SelectionListener btnSolveSelectionListener = new SelectionAdapter(){

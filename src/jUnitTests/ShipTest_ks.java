@@ -21,3 +21,21 @@ public class ShipTest_ks {
 	}
 
 }
+
+/*
+	private static final double EPSILON = 0.00001;
+	
+	@Test
+	public static void test1()
+	{
+		Ship tested = new Ship();
+		//tested.set(L, B, T, Tf, delta, I, Speed, h, stype, sclass)
+		//assertTrue(Math.abs(tested.getkp() - /...../) < EPSILON); 
+		//assertTrue(Math.abs(tested.getkp() - /...../) < EPSILON); 
+		//assertTrue(Math.abs(tested.getkp() - /...../) < EPSILON); 
+		//assertTrue(Math.abs(tested.getkp() - /...../) < EPSILON); 
+		//assertTrue(Math.abs(tested.getkp() - /...../) < EPSILON); 
+		//assertTrue(Math.abs(tested.getkp() - /...../) < EPSILON); 
+		//assertTrue(Math.abs(tested.getkp() - /...../) < EPSILON); 
+	}	
+*/
