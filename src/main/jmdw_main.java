@@ -28,11 +28,14 @@ public class jmdw_main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		final int hWindow = 400;
+		final int wWindow = 450;
+		final String appName = "Java MDW";
 		Display display = Display.getDefault();
 		Shell shlJavaMdw = new Shell();
-		shlJavaMdw.setMinimumSize(new Point(450, 400));
-		shlJavaMdw.setSize(450, 400);
-		shlJavaMdw.setText("Java MDW");
+		shlJavaMdw.setMinimumSize(new Point(wWindow, hWindow));
+		shlJavaMdw.setSize(wWindow, hWindow);
+		shlJavaMdw.setText(appName);
 
 		Group grpShipsClass = new Group(shlJavaMdw, SWT.NONE);
 		grpShipsClass.setText("Ship's class");
