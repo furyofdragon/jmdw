@@ -10,7 +10,9 @@ import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Point;
-import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.FillLayout;
 
 public class jmdw_main {
 	private static Text HeightOfWaves;
@@ -29,169 +31,176 @@ public class jmdw_main {
 	 */
 	public static void main(String[] args) {
 		final int hWindow = 400;
-		final int wWindow = 450;
+		final int wWindow = 460;
 		final String appName = "Java MDW";
 		Display display = Display.getDefault();
 		Shell shlJavaMdw = new Shell();
 		shlJavaMdw.setMinimumSize(new Point(wWindow, hWindow));
-		shlJavaMdw.setSize(wWindow, hWindow);
+		//shlJavaMdw.setSize(wWindow, hWindow);
 		shlJavaMdw.setText(appName);
+		shlJavaMdw.setLayout(new GridLayout(3, true));
 
 		Group grpShipsClass = new Group(shlJavaMdw, SWT.NONE);
+		grpShipsClass.setLayout(new GridLayout(2, true));
+		grpShipsClass.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		grpShipsClass.setText("Ship's class");
-		grpShipsClass.setBounds(10, 10, 144, 138);
 
 		final Button button_M = new Button(grpShipsClass, SWT.RADIO);
+		button_M.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		button_M.setSelection(true);
-		button_M.setBounds(10, 23, 44, 16);
 		button_M.setText("\u041C");
+		
+				final Button button_MSP = new Button(grpShipsClass, SWT.RADIO);
+				button_MSP.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+				button_MSP.setText("\u041C-\u0421\u041F");
 
 		final Button button_O = new Button(grpShipsClass, SWT.RADIO);
-		button_O.setBounds(10, 45, 44, 16);
+		button_O.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		button_O.setText("\u041E");
+		
+				final Button button_MPR = new Button(grpShipsClass, SWT.RADIO);
+				button_MPR.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+				button_MPR.setText("\u041C-\u041F\u0420");
 
 		final Button button_R = new Button(grpShipsClass, SWT.RADIO);
-		button_R.setBounds(10, 67, 44, 16);
+		button_R.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		button_R.setText("\u0420");
+		
+				final Button button_OPR = new Button(grpShipsClass, SWT.RADIO);
+				button_OPR.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+				button_OPR.setText("\u041E-\u041F\u0420");
 
 		final Button button_L = new Button(grpShipsClass, SWT.RADIO);
-		button_L.setBounds(10, 89, 44, 16);
+		button_L.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		button_L.setText("\u041B");
-
-		final Button button_MSP = new Button(grpShipsClass, SWT.RADIO);
-		button_MSP.setBounds(60, 23, 64, 16);
-		button_MSP.setText("\u041C-\u0421\u041F");
-
-		final Button button_MPR = new Button(grpShipsClass, SWT.RADIO);
-		button_MPR.setBounds(60, 45, 64, 16);
-		button_MPR.setText("\u041C-\u041F\u0420");
-
-		final Button button_OPR = new Button(grpShipsClass, SWT.RADIO);
-		button_OPR.setBounds(60, 67, 64, 16);
-		button_OPR.setText("\u041E-\u041F\u0420");
-		
-		Label lblHeightOfWaves = new Label(shlJavaMdw, SWT.NONE);
-		lblHeightOfWaves.setBounds(10, 176, 144, 15);
-		lblHeightOfWaves.setText("Height of waves, m");
-		
-		HeightOfWaves = new Text(shlJavaMdw, SWT.BORDER | SWT.RIGHT);
-		HeightOfWaves.setBounds(10, 197, 144, 21);
+		new Label(grpShipsClass, SWT.NONE);
 		
 		final Group grpShipsType = new Group(shlJavaMdw, SWT.NONE);
+		grpShipsType.setLayout(new FillLayout(SWT.VERTICAL));
+		grpShipsType.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		grpShipsType.setText("Ship's type");
-		grpShipsType.setBounds(160, 10, 118, 138);
 		
 		final Button btnCargoShip = new Button(grpShipsType, SWT.RADIO);
 		btnCargoShip.setSelection(true);
-		btnCargoShip.setBounds(10, 23, 105, 16);
 		btnCargoShip.setText("cargo ship");
 		
 		final Button btnPassangerShip = new Button(grpShipsType, SWT.RADIO);
-		btnPassangerShip.setBounds(10, 45, 105, 16);
 		btnPassangerShip.setText("passanger ship");
 		
 		final Button btnTowingShip = new Button(grpShipsType, SWT.RADIO);
-		btnTowingShip.setBounds(10, 67, 105, 16);
 		btnTowingShip.setText("towing ship");
-		
-		Label lblShipsSpeedKmh = new Label(shlJavaMdw, SWT.NONE);
-		lblShipsSpeedKmh.setBounds(160, 176, 118, 15);
-		lblShipsSpeedKmh.setText("Ship's speed, km/h");
-		
-		text_Speed = new Text(shlJavaMdw, SWT.BORDER | SWT.RIGHT);
-		text_Speed.setBounds(160, 197, 118, 21);
-		
+				
 		Group grpShipssCharacteristics = new Group(shlJavaMdw, SWT.NONE);
+		grpShipssCharacteristics.setLayout(new GridLayout(2, false));
+		grpShipssCharacteristics.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		grpShipssCharacteristics.setText("Ships's characteristics");
-		grpShipssCharacteristics.setBounds(284, 10, 140, 138);
 		
 		Label lblLM = new Label(grpShipssCharacteristics, SWT.NONE);
-		lblLM.setBounds(10, 24, 40, 15);
+		lblLM.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		lblLM.setText("L, m");
 		
+		text_L = new Text(grpShipssCharacteristics, SWT.BORDER | SWT.RIGHT);
+		text_L.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		
 		Label lblBM = new Label(grpShipssCharacteristics, SWT.NONE);
-		lblBM.setBounds(10, 45, 40, 15);
+		lblBM.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		lblBM.setText("B, m");
 		
+		text_B = new Text(grpShipssCharacteristics, SWT.BORDER | SWT.RIGHT);
+		text_B.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		
 		Label lblTM = new Label(grpShipssCharacteristics, SWT.NONE);
-		lblTM.setBounds(10, 66, 40, 15);
+		lblTM.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		lblTM.setText("T, m");
 		
+		text_T = new Text(grpShipssCharacteristics, SWT.BORDER | SWT.RIGHT);
+		text_T.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		
 		Label lblTfM = new Label(grpShipssCharacteristics, SWT.NONE);
-		lblTfM.setBounds(10, 87, 40, 15);
+		lblTfM.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		lblTfM.setText("Tf, m");
 		
+		text_Tf = new Text(grpShipssCharacteristics, SWT.BORDER | SWT.RIGHT);
+		text_Tf.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		
 		Label label = new Label(grpShipssCharacteristics, SWT.NONE);
-		label.setBounds(10, 108, 40, 15);
+		label.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		label.setText("\u03B4");
 		
-		text_L = new Text(grpShipssCharacteristics, SWT.BORDER | SWT.RIGHT);
-		text_L.setBounds(56, 24, 76, 21);
-		
-		text_B = new Text(grpShipssCharacteristics, SWT.BORDER | SWT.RIGHT);
-		text_B.setBounds(56, 45, 76, 21);
-		
-		text_T = new Text(grpShipssCharacteristics, SWT.BORDER | SWT.RIGHT);
-		text_T.setBounds(56, 66, 76, 21);
-		
-		text_Tf = new Text(grpShipssCharacteristics, SWT.BORDER | SWT.RIGHT);
-		text_Tf.setBounds(56, 87, 76, 21);
-		
 		text_delta = new Text(grpShipssCharacteristics, SWT.BORDER | SWT.RIGHT);
-		text_delta.setBounds(56, 108, 76, 21);
+		text_delta.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		
+		Label lblHeightOfWaves = new Label(shlJavaMdw, SWT.NONE);
+		lblHeightOfWaves.setLayoutData(new GridData(SWT.FILL, SWT.BOTTOM, true, true, 1, 1));
+		lblHeightOfWaves.setText("Height of waves, m");
+		
+		Label lblShipsSpeedKmh = new Label(shlJavaMdw, SWT.NONE);
+		lblShipsSpeedKmh.setLayoutData(new GridData(SWT.FILL, SWT.BOTTOM, true, true, 1, 1));
+		lblShipsSpeedKmh.setText("Ship's speed, km/h");
 		
 		Label lblMomentOfInertia = new Label(shlJavaMdw, SWT.NONE);
-		lblMomentOfInertia.setBounds(284, 161, 140, 30);
+		lblMomentOfInertia.setLayoutData(new GridData(SWT.FILL, SWT.BOTTOM, true, true, 1, 1));
 		lblMomentOfInertia.setText("Moment of inertia\r\nof cross section, m^4");
 		
+		HeightOfWaves = new Text(shlJavaMdw, SWT.BORDER | SWT.RIGHT);
+		HeightOfWaves.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		
+		text_Speed = new Text(shlJavaMdw, SWT.BORDER | SWT.RIGHT);
+		text_Speed.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		
 		text_I = new Text(shlJavaMdw, SWT.BORDER | SWT.RIGHT);
-		text_I.setBounds(284, 197, 140, 21);
+		text_I.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		
 		Group grpResults = new Group(shlJavaMdw, SWT.NONE);
+		grpResults.setLayout(new GridLayout(4, true));
+		grpResults.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 3, 1));
 		grpResults.setText("Results");
-		grpResults.setBounds(10, 224, 414, 99);
 		
 		final Label lblMv = new Label(grpResults, SWT.NONE);
-		lblMv.setBounds(10, 20, 55, 15);
+		lblMv.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		lblMv.setText("Mv");
 		
+		final Text lblNewLabel_0 = new Text(grpResults, SWT.BORDER | SWT.RIGHT);
+		lblNewLabel_0.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		lblNewLabel_0.setEditable(false);
+		new Label(grpResults, SWT.NONE);
+		new Label(grpResults, SWT.NONE);
+		
 		final Label lblKp = new Label(grpResults, SWT.NONE);
-		lblKp.setBounds(10, 41, 55, 15);
+		lblKp.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		lblKp.setText("kp");
 		
-		final Label lblMy = new Label(grpResults, SWT.NONE);
-		lblMy.setBounds(10, 62, 55, 15);
-		lblMy.setText("My");
-		
-		final Text lblNewLabel_0 = new Text(grpResults, SWT.BORDER | SWT.RIGHT);
-		lblNewLabel_0.setEditable(false);
-		lblNewLabel_0.setBounds(71, 20, 127, 21);
-		
 		final Text lblNewLabel_1 = new Text(grpResults, SWT.BORDER | SWT.RIGHT);
+		lblNewLabel_1.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		lblNewLabel_1.setEditable(false);
-		lblNewLabel_1.setBounds(71, 41, 127, 21);
-		
-		final Text lblNewLabel_2 = new Text(grpResults, SWT.BORDER | SWT.RIGHT);
-		lblNewLabel_2.setEditable(false);
-		lblNewLabel_2.setBounds(71, 62, 127, 21);
 		
 		Label lblMdw = new Label(grpResults, SWT.NONE);
-		lblMdw.setBounds(214, 41, 55, 15);
+		lblMdw.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		lblMdw.setText("Mdw");
 		
 		final Text lblNewLabel_3 = new Text(grpResults, SWT.BORDER | SWT.RIGHT);
+		lblNewLabel_3.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		lblNewLabel_3.setEditable(false);
-		lblNewLabel_3.setBounds(275, 41, 129, 21);
+		
+		final Label lblMy = new Label(grpResults, SWT.NONE);
+		lblMy.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		lblMy.setText("My");
+		
+		final Text lblNewLabel_2 = new Text(grpResults, SWT.BORDER | SWT.RIGHT);
+		lblNewLabel_2.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		lblNewLabel_2.setEditable(false);
+		new Label(grpResults, SWT.NONE);
+		new Label(grpResults, SWT.NONE);
 		
 		Button btnSolve = new Button(shlJavaMdw, SWT.NONE);
-		btnSolve.setBounds(10, 329, 200, 25);
+		btnSolve.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		btnSolve.setText("Solve");
+		new Label(shlJavaMdw, SWT.NONE);
 		
 		Button btnSaveResults = new Button(shlJavaMdw, SWT.NONE);
+		btnSaveResults.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		btnSaveResults.setEnabled(false);
-		btnSaveResults.setBounds(224, 329, 200, 25);
 		btnSaveResults.setText("Save results");
-		shlJavaMdw.setTabList(new Control[]{grpShipsClass, grpShipsType, grpShipssCharacteristics, HeightOfWaves, text_Speed, text_I, grpResults, btnSolve, btnSaveResults});
 		
 		
 		SelectionListener btnSolveSelectionListener = new SelectionAdapter(){
