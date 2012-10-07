@@ -30,20 +30,27 @@ public class jmdw_main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		
+		//Text constants
+		final String appName						= "Java MDW";
+		final String grpShipsClassText				= "Ship's class";
+		final String grpShipsTypeText				= "Ship's type";
+		final String grpShipssCharacteristicsText	= "Ships's characteristics";
+		final String grpResultsText					= "Results";
+		
 		final int hWindow = 400;
 		final int wWindow = 460;
-		final String appName = "Java MDW";
 		Display display = Display.getDefault();
 		Shell shlJavaMdw = new Shell();
 		shlJavaMdw.setMinimumSize(new Point(wWindow, hWindow));
-		//shlJavaMdw.setSize(wWindow, hWindow);
+		shlJavaMdw.setSize(wWindow, hWindow);
 		shlJavaMdw.setText(appName);
 		shlJavaMdw.setLayout(new GridLayout(3, true));
 
 		Group grpShipsClass = new Group(shlJavaMdw, SWT.NONE);
 		grpShipsClass.setLayout(new GridLayout(2, true));
 		grpShipsClass.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
-		grpShipsClass.setText("Ship's class");
+		grpShipsClass.setText(grpShipsClassText);
 
 		final Button button_M = new Button(grpShipsClass, SWT.RADIO);
 		button_M.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
@@ -78,7 +85,7 @@ public class jmdw_main {
 		final Group grpShipsType = new Group(shlJavaMdw, SWT.NONE);
 		grpShipsType.setLayout(new FillLayout(SWT.VERTICAL));
 		grpShipsType.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
-		grpShipsType.setText("Ship's type");
+		grpShipsType.setText(grpShipsTypeText);
 		
 		final Button btnCargoShip = new Button(grpShipsType, SWT.RADIO);
 		btnCargoShip.setSelection(true);
@@ -93,7 +100,7 @@ public class jmdw_main {
 		Group grpShipssCharacteristics = new Group(shlJavaMdw, SWT.NONE);
 		grpShipssCharacteristics.setLayout(new GridLayout(2, false));
 		grpShipssCharacteristics.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
-		grpShipssCharacteristics.setText("Ships's characteristics");
+		grpShipssCharacteristics.setText(grpShipssCharacteristicsText);
 		
 		Label lblLM = new Label(grpShipssCharacteristics, SWT.NONE);
 		lblLM.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
@@ -154,7 +161,7 @@ public class jmdw_main {
 		Group grpResults = new Group(shlJavaMdw, SWT.NONE);
 		grpResults.setLayout(new GridLayout(4, true));
 		grpResults.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 3, 1));
-		grpResults.setText("Results");
+		grpResults.setText(grpResultsText);
 		
 		final Label lblMv = new Label(grpResults, SWT.NONE);
 		lblMv.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
