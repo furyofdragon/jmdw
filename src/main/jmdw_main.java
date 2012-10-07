@@ -12,7 +12,6 @@ import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.layout.FillLayout;
 
 public class jmdw_main {
 	private static Text HeightOfWaves;
@@ -39,13 +38,13 @@ public class jmdw_main {
 		final String grpResultsText					= "Results";
 		
 		final int hWindow = 400;
-		final int wWindow = 460;
+		final int wWindow = 600;
 		Display display = Display.getDefault();
 		Shell shlJavaMdw = new Shell();
 		shlJavaMdw.setMinimumSize(new Point(wWindow, hWindow));
 		shlJavaMdw.setSize(wWindow, hWindow);
 		shlJavaMdw.setText(appName);
-		shlJavaMdw.setLayout(new GridLayout(3, true));
+		shlJavaMdw.setLayout(new GridLayout(4, true));
 
 		Group grpShipsClass = new Group(shlJavaMdw, SWT.NONE);
 		grpShipsClass.setLayout(new GridLayout(2, true));
@@ -83,7 +82,7 @@ public class jmdw_main {
 		new Label(grpShipsClass, SWT.NONE);
 		
 		final Group grpShipsType = new Group(shlJavaMdw, SWT.NONE);
-		grpShipsType.setLayout(new FillLayout(SWT.VERTICAL));
+		grpShipsType.setLayout(new GridLayout(1, true));
 		grpShipsType.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		grpShipsType.setText(grpShipsTypeText);
 		
@@ -98,8 +97,8 @@ public class jmdw_main {
 		btnTowingShip.setText("towing ship");
 				
 		Group grpShipssCharacteristics = new Group(shlJavaMdw, SWT.NONE);
-		grpShipssCharacteristics.setLayout(new GridLayout(2, false));
-		grpShipssCharacteristics.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		grpShipssCharacteristics.setLayout(new GridLayout(2, true));
+		grpShipssCharacteristics.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
 		grpShipssCharacteristics.setText(grpShipssCharacteristicsText);
 		
 		Label lblLM = new Label(grpShipssCharacteristics, SWT.NONE);
@@ -146,11 +145,8 @@ public class jmdw_main {
 		lblShipsSpeedKmh.setText("Ship's speed, km/h");
 		
 		Label lblMomentOfInertia = new Label(shlJavaMdw, SWT.NONE);
-		lblMomentOfInertia.setLayoutData(new GridData(SWT.FILL, SWT.BOTTOM, true, true, 1, 1));
+		lblMomentOfInertia.setLayoutData(new GridData(SWT.FILL, SWT.BOTTOM, true, true, 2, 1));
 		lblMomentOfInertia.setText("Moment of inertia\r\nof cross section, m^4");
-		
-		HeightOfWaves = new Text(shlJavaMdw, SWT.BORDER | SWT.RIGHT);
-		HeightOfWaves.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		
 		text_Speed = new Text(shlJavaMdw, SWT.BORDER | SWT.RIGHT);
 		text_Speed.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
@@ -158,9 +154,12 @@ public class jmdw_main {
 		text_I = new Text(shlJavaMdw, SWT.BORDER | SWT.RIGHT);
 		text_I.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		
+		HeightOfWaves = new Text(shlJavaMdw, SWT.BORDER | SWT.RIGHT);
+		HeightOfWaves.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
+		
 		Group grpResults = new Group(shlJavaMdw, SWT.NONE);
 		grpResults.setLayout(new GridLayout(4, true));
-		grpResults.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 3, 1));
+		grpResults.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 4, 1));
 		grpResults.setText(grpResultsText);
 		
 		final Label lblMv = new Label(grpResults, SWT.NONE);
@@ -200,12 +199,11 @@ public class jmdw_main {
 		new Label(grpResults, SWT.NONE);
 		
 		Button btnSolve = new Button(shlJavaMdw, SWT.NONE);
-		btnSolve.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		btnSolve.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
 		btnSolve.setText("Solve");
-		new Label(shlJavaMdw, SWT.NONE);
 		
 		Button btnSaveResults = new Button(shlJavaMdw, SWT.NONE);
-		btnSaveResults.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		btnSaveResults.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
 		btnSaveResults.setEnabled(false);
 		btnSaveResults.setText("Save results");
 		
@@ -259,8 +257,6 @@ public class jmdw_main {
 			}
 		};
 		
-		btnSolve.addSelectionListener(btnSolveSelectionListener);
-		
 		
 		SelectionListener leftRadioButtonsSelectionListener = new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
@@ -301,6 +297,9 @@ public class jmdw_main {
 		button_MSP.addSelectionListener(rightRadioButtonsSelectionListener);
 		button_MPR.addSelectionListener(rightRadioButtonsSelectionListener);
 		button_OPR.addSelectionListener(rightRadioButtonsSelectionListener);
+		
+		btnSolve.addSelectionListener(btnSolveSelectionListener);
+		
 		
 		shlJavaMdw.open();
 		shlJavaMdw.layout();
