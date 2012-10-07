@@ -94,6 +94,13 @@ public class jmdw_main {
 		btnTowingShip.setBounds(10, 67, 105, 16);
 		btnTowingShip.setText("towing ship");
 		
+		Label lblShipsSpeedKmh = new Label(shlJavaMdw, SWT.NONE);
+		lblShipsSpeedKmh.setBounds(160, 176, 118, 15);
+		lblShipsSpeedKmh.setText("Ship's speed, km/h");
+		
+		text_Speed = new Text(shlJavaMdw, SWT.BORDER | SWT.RIGHT);
+		text_Speed.setBounds(160, 197, 118, 21);
+		
 		Group grpShipssCharacteristics = new Group(shlJavaMdw, SWT.NONE);
 		grpShipssCharacteristics.setText("Ships's characteristics");
 		grpShipssCharacteristics.setBounds(284, 10, 140, 138);
@@ -139,13 +146,6 @@ public class jmdw_main {
 		
 		text_I = new Text(shlJavaMdw, SWT.BORDER | SWT.RIGHT);
 		text_I.setBounds(284, 197, 140, 21);
-		
-		Label lblShipsSpeedKmh = new Label(shlJavaMdw, SWT.NONE);
-		lblShipsSpeedKmh.setBounds(160, 176, 118, 15);
-		lblShipsSpeedKmh.setText("Ship's speed, km/h");
-		
-		text_Speed = new Text(shlJavaMdw, SWT.BORDER | SWT.RIGHT);
-		text_Speed.setBounds(160, 197, 118, 21);
 		
 		Group grpResults = new Group(shlJavaMdw, SWT.NONE);
 		grpResults.setText("Results");
@@ -207,12 +207,12 @@ public class jmdw_main {
 				
 				int sclass = 1;
 				if(button_M.getSelection()) sclass = 1;  // M
-				if(button_O.getSelection()) sclass = 2;  // Î
-				if(button_R.getSelection()) sclass = 3;  // Ð
-				if(button_L.getSelection()) sclass = 4;  // Ë
-				if(button_MSP.getSelection()) sclass = 5;  // Ì-ÑÏ
-				if(button_MPR.getSelection()) sclass = 6;  // Ì-ÏÐ
-				if(button_OPR.getSelection()) sclass = 7;  // Î-ÏÐ
+				if(button_O.getSelection()) sclass = 2;  // ï¿½
+				if(button_R.getSelection()) sclass = 3;  // ï¿½
+				if(button_L.getSelection()) sclass = 4;  // ï¿½
+				if(button_MSP.getSelection()) sclass = 5;  // ï¿½-ï¿½ï¿½
+				if(button_MPR.getSelection()) sclass = 6;  // ï¿½-ï¿½ï¿½
+				if(button_OPR.getSelection()) sclass = 7;  // ï¿½-ï¿½ï¿½
 				
 				int stype = 1;
 				if(btnCargoShip.getSelection())     stype = 1;
