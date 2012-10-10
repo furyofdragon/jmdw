@@ -10,7 +10,6 @@ public class PrintResults {
 			PrintWriter pw = new PrintWriter("results.txt");
 			pw.println("PrintWriter is easy to use.");
 			
-			jmdw_main.ship.getMdw();
 			pw.println("Mdw = " + Double.toString(jmdw_main.ship.getMdw()));
 			
 			pw.close();
