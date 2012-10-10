@@ -1,0 +1,20 @@
+package main;
+
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+
+public class PrintResults {
+
+	void printResultsToHtml() {
+		try {
+			PrintWriter pw = new PrintWriter("results.txt");
+			pw.println("PrintWriter is easy to use.");
+			pw.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+}

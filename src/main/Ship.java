@@ -19,7 +19,7 @@ public class Ship {
 	private double My;
 	private double Mdw;
 	
-	// метод задания значений
+	// пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	void set(double L, double B, double T, double Tf, double delta, double I, double Speed, double h, int stype, int sclass){
 		this.L = L;
 		this.B = B;
@@ -33,7 +33,7 @@ public class Ship {
 		this.sclass = sclass;
 	}
 	
-	// метод расчёта
+	// пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	void solve(){
 		if ((sclass == 1) || (sclass ==2) || (sclass ==3) || (sclass == 4)) {
 			
@@ -148,7 +148,7 @@ public class Ship {
 			double k3_1 = 1.0;
 			double k3_2 = 0;
 			switch (sclass) {
-			case 5:   //class М-СП
+			case 5:   //class пїЅ-пїЅпїЅ
 				if (L <= 100.0)					k1 = 0.0147;			//table 2.1.4-1 RRRR
 				if ((L > 100.0)&&(L <= 140.0))	k1 = 0.0147+(0.0137-0.0147)*(L-100.0)/40.0;
 				if (L > 140.0)					k1 = 0.0137;
@@ -160,7 +160,7 @@ public class Ship {
 				if (h > 3.5)					k3 = k3_1;
 				if ((h >= 3.0)&&(h <= 3.5))		k3 = k3_2+(k3_1-k3_2)*(h-3.0)/0.5;
 				break;
-			case 6:   //class М-ПР
+			case 6:   //class пїЅ-пїЅпїЅ
 				if (L <= 60.0) 					k1 = 0.0130;			//table 2.2.3-1 RRRR
 				if ((L > 60.0)&&(L <= 100.0))	k1 = 0.0130+(0.0117-0.0130)*(L-60.0)/40.0;
 				if ((L > 100.0)&&(L <= 140.0))	k1 = 0.0117+(0.0102-0.0117)*(L-100.0)/40.0;
@@ -174,7 +174,7 @@ public class Ship {
 				if (h > 2.5)					k3 = k3_1;
 				if ((h >= 2.0)&&(h <= 2.5))		k3 = k3_2+(k3_1-k3_2)*(h-2.0)/0.5;
 				break;
-			case 7:   //class О-ПР
+			case 7:   //class пїЅ-пїЅпїЅ
 				if (L <= 60.0) 					k1 = 0.0154;			//table 2.3.2-1 RRRR
 				if ((L > 60.0)&&(L <= 100.0))	k1 = 0.0154+(0.0114-0.0154)*(L-60.0)/40.0;
 				if ((L > 100.0)&&(L <= 140.0))	k1 = 0.0114+(0.0089-0.0114)*(L-100.0)/40.0;
@@ -194,7 +194,7 @@ public class Ship {
 	}
 	
 	
-	// Возврат результатов расчёта
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	double getMdw(){
 		return Mdw;
 	}
@@ -210,6 +210,6 @@ public class Ship {
 	double getMy(){
 		return My;
 	}
-	
+
 }
 

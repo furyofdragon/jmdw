@@ -1,4 +1,5 @@
 package main;
+
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Group;
@@ -12,6 +13,7 @@ import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.layout.GridData;
+
 import messages.Messages;
 
 public class jmdw_main {
@@ -161,8 +163,8 @@ public class jmdw_main {
 		lblMv.setText(Messages.getString("jmdw_main.lblMv.text")); //$NON-NLS-1$
 		
 		final Text lblNewLabel_0 = new Text(grpResults, SWT.BORDER | SWT.RIGHT);
-		lblNewLabel_0.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		lblNewLabel_0.setEditable(false);
+		lblNewLabel_0.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		new Label(grpResults, SWT.NONE);
 		new Label(grpResults, SWT.NONE);
 		
@@ -198,9 +200,9 @@ public class jmdw_main {
 		
 		Button btnSaveResults = new Button(shlJavaMdw, SWT.NONE);
 		btnSaveResults.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
-		btnSaveResults.setEnabled(false);
 		btnSaveResults.setText(Messages.getString("jmdw_main.btnSaveResults.text")); //$NON-NLS-1$
 		
+		final Ship ship = new Ship();
 		
 		SelectionListener btnSolveSelectionListener = new SelectionAdapter(){
 			public void widgetSelected(SelectionEvent e) {
@@ -215,19 +217,19 @@ public class jmdw_main {
 				
 				int sclass = 1;
 				if(button_M.getSelection()) sclass = 1;  // M
-				if(button_O.getSelection()) sclass = 2;  // �
-				if(button_R.getSelection()) sclass = 3;  // �
-				if(button_L.getSelection()) sclass = 4;  // �
-				if(button_MSP.getSelection()) sclass = 5;  // �-��
-				if(button_MPR.getSelection()) sclass = 6;  // �-��
-				if(button_OPR.getSelection()) sclass = 7;  // �-��
+				if(button_O.getSelection()) sclass = 2;  // O
+				if(button_R.getSelection()) sclass = 3;  // P
+				if(button_L.getSelection()) sclass = 4;  // L
+				if(button_MSP.getSelection()) sclass = 5;  // M-SP
+				if(button_MPR.getSelection()) sclass = 6;  // M-PR
+				if(button_OPR.getSelection()) sclass = 7;  // O-PR
 				
 				int stype = 1;
 				if(btnCargoShip.getSelection())     stype = 1;
 				if(btnPassangerShip.getSelection()) stype = 2;
 				if(btnTowingShip.getSelection())    stype = 3;
 				
-				Ship ship = new Ship();
+				//Ship ship = new Ship();
 				ship.set(L, B, T, Tf, delta, I, Speed, h, stype, sclass);
 				ship.solve();
 				
@@ -248,6 +250,14 @@ public class jmdw_main {
 				double My = ship.getMy();
 				s = Double.toString(My);
 				lblNewLabel_2.setText(s);
+			}
+		};
+		
+		
+		SelectionListener btnSaveResultsSelectionListener = new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent e) {
+				PrintResults pr = new PrintResults();
+				pr.printResultsToHtml();
 			}
 		};
 		
@@ -293,6 +303,7 @@ public class jmdw_main {
 		button_OPR.addSelectionListener(rightRadioButtonsSelectionListener);
 		
 		btnSolve.addSelectionListener(btnSolveSelectionListener);
+		btnSaveResults.addSelectionListener(btnSaveResultsSelectionListener);
 		
 		
 		shlJavaMdw.open();
