@@ -25,6 +25,8 @@ public class jmdw_main {
 	private static Text text_delta;
 	private static Text text_I;
 	private static Text text_Speed;
+	
+	static Ship ship = new Ship();
 
 	/**
 	 * Launch the application.
@@ -198,11 +200,11 @@ public class jmdw_main {
 		btnSolve.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
 		btnSolve.setText(Messages.getString("jmdw_main.btnSolve.text")); //$NON-NLS-1$
 		
-		Button btnSaveResults = new Button(shlJavaMdw, SWT.NONE);
+		final Button btnSaveResults = new Button(shlJavaMdw, SWT.NONE);
+		btnSaveResults.setEnabled(false);
 		btnSaveResults.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
 		btnSaveResults.setText(Messages.getString("jmdw_main.btnSaveResults.text")); //$NON-NLS-1$
 		
-		final Ship ship = new Ship();
 		
 		SelectionListener btnSolveSelectionListener = new SelectionAdapter(){
 			public void widgetSelected(SelectionEvent e) {
@@ -229,9 +231,9 @@ public class jmdw_main {
 				if(btnPassangerShip.getSelection()) stype = 2;
 				if(btnTowingShip.getSelection())    stype = 3;
 				
-				//Ship ship = new Ship();
 				ship.set(L, B, T, Tf, delta, I, Speed, h, stype, sclass);
 				ship.solve();
+				btnSaveResults.setEnabled(true);
 				
 				String s = null;
 				
