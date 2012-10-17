@@ -26,10 +26,20 @@ public class PrintResults {
 			pw.println("<TR><TD>" + Messages.getString("jmdw_main.lblMomentOfInertia.text")	+ "</TD><TD>" + Double.toString(jmdw_main.ship.getI())     + "</TD></TR>");
 			pw.println("<TR><TD>" + Messages.getString("jmdw_main.lblHeightOfWaves.text")	+ "</TD><TD>" + Double.toString(jmdw_main.ship.geth())     + "</TD></TR>");
 			pw.println("<TR><TD align=\"center\"><B>Results</B></TD></TR>");
-			pw.println("<TR><TD>"    + Messages.getString("jmdw_main.lblMv.text")	+ "</TD><TD>"        + Double.toString(jmdw_main.ship.getMv())  + "</TD></TR>");
-			pw.println("<TR><TD>"    + Messages.getString("jmdw_main.lblKp.text")	+ "</TD><TD>"        + Double.toString(jmdw_main.ship.getkp())  + "</TD></TR>");
-			pw.println("<TR><TD>"    + Messages.getString("jmdw_main.lblMy.text")	+ "</TD><TD>"        + Double.toString(jmdw_main.ship.getMy())  + "</TD></TR>");
+			
+			int sclass = jmdw_main.ship.getsclass();
+			if ((sclass == 1)|(sclass == 2)|(sclass == 3)|(sclass == 4)) {
+				pw.println("<TR><TD>" + Messages.getString("jmdw_main.lblMv.text")	+ "</TD><TD>" + Double.toString(jmdw_main.ship.getMv())	+ "</TD></TR>");
+				pw.println("<TR><TD>" + Messages.getString("jmdw_main.lblKp.text")	+ "</TD><TD>" + Double.toString(jmdw_main.ship.getkp())	+ "</TD></TR>");
+				pw.println("<TR><TD>" + Messages.getString("jmdw_main.lblMy.text")	+ "</TD><TD>" + Double.toString(jmdw_main.ship.getMy())	+ "</TD></TR>");
+			} else{ // 5, 6 or 7 - coastal
+				pw.println("<TR><TD>k0</TD><TD>" + Double.toString(jmdw_main.ship.getk0())	+ "</TD></TR>");
+				pw.println("<TR><TD>k1</TD><TD>" + Double.toString(jmdw_main.ship.getk1())	+ "</TD></TR>");
+				pw.println("<TR><TD>k2</TD><TD>" + Double.toString(jmdw_main.ship.getk2())	+ "</TD></TR>");
+				pw.println("<TR><TD>k3</TD><TD>" + Double.toString(jmdw_main.ship.getk3())	+ "</TD></TR>");
+			}
 			pw.println("<TR><TD><B>" + Messages.getString("jmdw_main.lblMdw.text")	+ "</B></TD><TD><B>" + Double.toString(jmdw_main.ship.getMdw()) + "</B></TD></TR>");
+			
 			pw.println("</TBODY></TABLE>");
 			pw.println("</BODY></HTML>");
 			
