@@ -210,6 +210,40 @@ public class Ship {
 	double getMy(){
 		return My;
 	}
+	
+	
+	// Возврат данных для печати
+	double getL(){
+		return L;
+	}
+	
+	double getB(){
+		return B;
+	}
+	
+	double getT(){
+		return T;
+	}
+	
+	double getTf(){
+		return Tf;
+	}
+	
+	double getdelta(){
+		return delta;
+	}
+	
+	double getI(){
+		return I;
+	}
+	
+	double getSpeed(){
+		return Speed;
+	}
+	
+	double geth(){
+		return h;
+	}
 
 }
 
