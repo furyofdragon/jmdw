@@ -27,7 +27,16 @@ public class PrintResults {
 			case 7: pw.println(Messages.getString("jmdw_main.button_OPR.text")); break;
 			}
 			pw.println("</TD></TR>");
-			pw.println("<TR><TD>" + Messages.getString("jmdw_main.grpShipsType.text")		+ "</TD><TD></TD></TR>");
+			if ((sclass == 1)|(sclass == 2)|(sclass == 3)|(sclass == 4)) { // river ship
+				pw.println("<TR><TD>" + Messages.getString("jmdw_main.grpShipsType.text") + "</TD><TD>");
+				int stype = jmdw_main.ship.getstype();
+				switch (stype) {
+				case 1: pw.println(Messages.getString("jmdw_main.btnCargoShip.text")); break;
+				case 2: pw.println(Messages.getString("jmdw_main.btnPassangerShip.text")); break;
+				case 3: pw.println(Messages.getString("jmdw_main.btnTowingShip.text")); break;
+				}
+				pw.println("</TD></TR>");
+			}
 			pw.println("<TR><TD>" + Messages.getString("jmdw_main.lblLM.text")				+ "</TD><TD>" + Double.toString(jmdw_main.ship.getL())     + "</TD></TR>");
 			pw.println("<TR><TD>" + Messages.getString("jmdw_main.lblBM.text")				+ "</TD><TD>" + Double.toString(jmdw_main.ship.getB())     + "</TD></TR>");
 			pw.println("<TR><TD>" + Messages.getString("jmdw_main.lblTM.text")				+ "</TD><TD>" + Double.toString(jmdw_main.ship.getT())     + "</TD></TR>");
