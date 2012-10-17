@@ -19,7 +19,7 @@ public class Ship {
 	private double My;
 	private double Mdw;
 	
-	// пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+	// метод задания значений
 	void set(double L, double B, double T, double Tf, double delta, double I, double Speed, double h, int stype, int sclass){
 		this.L = L;
 		this.B = B;
@@ -33,7 +33,7 @@ public class Ship {
 		this.sclass = sclass;
 	}
 	
-	// пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+	// метод расчёта
 	void solve(){
 		if ((sclass == 1) || (sclass ==2) || (sclass ==3) || (sclass == 4)) {
 			
@@ -194,7 +194,7 @@ public class Ship {
 	}
 	
 	
-	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+	// Возврат результатов расчёта
 	double getMdw(){
 		return Mdw;
 	}

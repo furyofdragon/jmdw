@@ -35,9 +35,6 @@ public class PrintResults {
 			
 			pw.println("</TBODY></TABLE>");
 			pw.println("</BODY></HTML>");
-			
-			//pw.println("Mdw = " + Double.toString(jmdw_main.ship.getMdw()));
-			
 			pw.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
