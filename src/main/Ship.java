@@ -19,6 +19,11 @@ public class Ship {
 	private double My;
 	private double Mdw;
 	
+	private double k0;
+	private double k1;
+	private double k2;
+	private double k3;
+	
 	// метод задани€ значений
 	void set(double L, double B, double T, double Tf, double delta, double I, double Speed, double h, int stype, int sclass){
 		this.L = L;
@@ -141,10 +146,10 @@ public class Ship {
 			Mv = 0.0;
 			kp = 0.0;
 			My = 0.0;
-			double k0 = Math.min(1.24-1.7*B/L, 1.0);
-			double k1 = 0;
-			double k2 = Math.max(2.0-20.0*Tf/L, 1.0);
-			double k3 = 0;
+			k0 = Math.min(1.24-1.7*B/L, 1.0);
+			k1 = 0;
+			k2 = Math.max(2.0-20.0*Tf/L, 1.0);
+			k3 = 0;
 			double k3_1 = 1.0;
 			double k3_2 = 0;
 			switch (sclass) {
@@ -211,8 +216,24 @@ public class Ship {
 		return My;
 	}
 	
+	double getk0(){
+		return k0;
+	}
 	
-	// ¬озврат данных дл€ печати
+	double getk1(){
+		return k1;
+	}
+	
+	double getk2(){
+		return k2;
+	}
+	
+	double getk3(){
+		return k3;
+	}
+	
+	
+	// ¬озврат исходных данных дл€ печати
 	double getL(){
 		return L;
 	}
@@ -243,6 +264,14 @@ public class Ship {
 	
 	double geth(){
 		return h;
+	}
+	
+	int getstype(){
+		return stype;
+	}
+	
+	int getsclass(){
+		return sclass;
 	}
 
 }
