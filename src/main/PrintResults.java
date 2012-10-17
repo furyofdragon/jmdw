@@ -15,7 +15,18 @@ public class PrintResults {
 			pw.println("<HTML><BODY>");
 			pw.println("<TABLE border=1 cellSpacing=0 cellPadding=0 width=100%><TBODY>");
 			pw.println("<TR><TD align=\"center\"><B>Input data</B></TD></TR>");
-			pw.println("<TR><TD>" + Messages.getString("jmdw_main.grpShipsClass.text")		+ "</TD><TD></TD></TR>");
+			pw.println("<TR><TD>" + Messages.getString("jmdw_main.grpShipsClass.text") + "</TD><TD>");
+			int sclass = jmdw_main.ship.getsclass();
+			switch (sclass){
+			case 1: pw.println(Messages.getString("jmdw_main.button_M.text")); break;
+			case 2: pw.println(Messages.getString("jmdw_main.button_O.text")); break;
+			case 3: pw.println(Messages.getString("jmdw_main.button_R.text")); break;
+			case 4: pw.println(Messages.getString("jmdw_main.button_L.text")); break;
+			case 5: pw.println(Messages.getString("jmdw_main.button_MSP.text")); break;
+			case 6: pw.println(Messages.getString("jmdw_main.button_MPR.text")); break;
+			case 7: pw.println(Messages.getString("jmdw_main.button_OPR.text")); break;
+			}
+			pw.println("</TD></TR>");
 			pw.println("<TR><TD>" + Messages.getString("jmdw_main.grpShipsType.text")		+ "</TD><TD></TD></TR>");
 			pw.println("<TR><TD>" + Messages.getString("jmdw_main.lblLM.text")				+ "</TD><TD>" + Double.toString(jmdw_main.ship.getL())     + "</TD></TR>");
 			pw.println("<TR><TD>" + Messages.getString("jmdw_main.lblBM.text")				+ "</TD><TD>" + Double.toString(jmdw_main.ship.getB())     + "</TD></TR>");
@@ -26,9 +37,7 @@ public class PrintResults {
 			pw.println("<TR><TD>" + Messages.getString("jmdw_main.lblMomentOfInertia.text")	+ "</TD><TD>" + Double.toString(jmdw_main.ship.getI())     + "</TD></TR>");
 			pw.println("<TR><TD>" + Messages.getString("jmdw_main.lblHeightOfWaves.text")	+ "</TD><TD>" + Double.toString(jmdw_main.ship.geth())     + "</TD></TR>");
 			pw.println("<TR><TD align=\"center\"><B>Results</B></TD></TR>");
-			
-			int sclass = jmdw_main.ship.getsclass();
-			if ((sclass == 1)|(sclass == 2)|(sclass == 3)|(sclass == 4)) {
+			if ((sclass == 1)|(sclass == 2)|(sclass == 3)|(sclass == 4)) { // river ship
 				pw.println("<TR><TD>" + Messages.getString("jmdw_main.lblMv.text")	+ "</TD><TD>" + Double.toString(jmdw_main.ship.getMv())	+ "</TD></TR>");
 				pw.println("<TR><TD>" + Messages.getString("jmdw_main.lblKp.text")	+ "</TD><TD>" + Double.toString(jmdw_main.ship.getkp())	+ "</TD></TR>");
 				pw.println("<TR><TD>" + Messages.getString("jmdw_main.lblMy.text")	+ "</TD><TD>" + Double.toString(jmdw_main.ship.getMy())	+ "</TD></TR>");
