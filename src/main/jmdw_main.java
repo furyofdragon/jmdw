@@ -146,19 +146,19 @@ public class jmdw_main {
 		lblMomentOfInertia.setLayoutData(new GridData(SWT.FILL, SWT.BOTTOM, true, true, 2, 1));
 		lblMomentOfInertia.setText(Messages.getString("jmdw_main.lblMomentOfInertia.text")); //$NON-NLS-1$
 		
+		HeightOfWaves = new Text(shlJavaMdw, SWT.BORDER | SWT.RIGHT);
+		HeightOfWaves.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1));
+		
 		text_Speed = new Text(shlJavaMdw, SWT.BORDER | SWT.RIGHT);
-		text_Speed.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		text_Speed.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1));
 		
 		text_I = new Text(shlJavaMdw, SWT.BORDER | SWT.RIGHT);
-		text_I.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
-		
-		HeightOfWaves = new Text(shlJavaMdw, SWT.BORDER | SWT.RIGHT);
-		HeightOfWaves.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
+		text_I.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
 		
 		Group grpResults = new Group(shlJavaMdw, SWT.NONE);
 		grpResults.setLayout(new GridLayout(4, true));
 		grpResults.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 4, 1));
-		grpResults.setText(Messages.getString("jmdw_main.grpResults.text")); //$NON-NLS-1$
+		grpResults.setText(Messages.getString("jmdw_main.grpResults.text"));
 		
 		final Label lblMv = new Label(grpResults, SWT.NONE);
 		lblMv.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
