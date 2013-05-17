@@ -24,6 +24,14 @@ public class Ship {
 	private double k2;
 	private double k3;
 	
+	private double D;
+	private double eps;
+	private double eta;
+	private double omsr;
+	private double v1;
+	private double sigma;
+	private double kv;
+	
 	// метод задания значений
 	void set(double L, double B, double T, double Tf, double delta, double I, double Speed, double h, int stype, int sclass){
 		this.L = L;
@@ -38,16 +46,42 @@ public class Ship {
 		this.sclass = sclass;
 	}
 	
+	void setL(double L) {this.L = L;}
+	
+	void setB(double B) {this.B = B;}
+	
+	void setT(double T) {this.T = T;}
+	
+	void setTf(double Tf) {this.Tf = Tf;}
+	
+	void setdelta(double delta) {this.delta = delta;}
+	
+	void setI(double I) {this.I = I;}
+	
+	void setSpeed(double Speed) {this.Speed = Speed;}
+	
+	void seth(double h) {this.h = h;}
+	
+	void setstype(int stype) {this.stype = stype;}
+	
+	void setsclass(int sclass) {this.sclass = sclass;}
+	
+	
 	// метод расчёта
 	void solve(){
 		if ((sclass == 1) || (sclass ==2) || (sclass ==3) || (sclass == 4)) {
 			
-			double D = g*delta*L*B*T;
+			//double D = g*delta*L*B*T;
+			D = g*delta*L*B*T;
 			double kd = Math.exp(-1.6*(1-delta));
-			double eps = 0.0;
-			double eta = 0.0;
-			double omsr = 0.0;
-			double v1 = 0.0;
+			//double eps = 0.0;
+			eps = 0.0;
+			//double eta = 0.0;
+			eta = 0.0;
+			//double omsr = 0.0;
+			omsr = 0.0;
+			//double v1 = 0.0;
+			v1 = 0.0;
 			
 			switch (sclass) {					// table 2.2.10 of RRRR
 			case 1:   //class M
@@ -114,10 +148,12 @@ public class Ship {
 			case 2: ks = 117e4; break;   //passenger
 			case 3: ks = 104e4; break;   //tower
 			}
-			double sigma =ks*Math.sqrt(I/((1.2+B/(3*T))*D*L*L*L));
+			//double sigma = ks*Math.sqrt(I/((1.2+B/(3*T))*D*L*L*L));
+			sigma = ks*Math.sqrt(I/((1.2+B/(3*T))*D*L*L*L));
 			double kmu = 0.0612*(1-0.047*sigma-0.0077*sigma*sigma);
 			if (kmu < 0) kmu = 0;
-			double kv =0.0;
+			//double kv =0.0;
+			kv =0.0;
 			double k = 10*eta*h/L;
 			if (k <= 0.3) {
 				kv = 1+1.18*k-28*k*k+61.7*k*k*k;
@@ -234,45 +270,37 @@ public class Ship {
 	
 	
 	// Возврат исходных данных для печати
-	double getL(){
-		return L;
-	}
+	double getL(){return L;}
 	
-	double getB(){
-		return B;
-	}
+	double getB(){return B;}
 	
-	double getT(){
-		return T;
-	}
+	double getT(){return T;	}
 	
-	double getTf(){
-		return Tf;
-	}
+	double getTf(){return Tf;}
 	
-	double getdelta(){
-		return delta;
-	}
+	double getdelta(){return delta;}
 	
-	double getI(){
-		return I;
-	}
+	double getI(){return I;}
 	
-	double getSpeed(){
-		return Speed;
-	}
+	double getSpeed(){return Speed;}
 	
-	double geth(){
-		return h;
-	}
+	double geth(){return h;}
 	
-	int getstype(){
-		return stype;
-	}
+	int getstype(){return stype;}
 	
-	int getsclass(){
-		return sclass;
-	}
+	int getsclass(){return sclass;}
+	
+	
+	// for debug
+	double get_D()		{return D;}
+	double get_eps()	{return eps;}
+	double get_eta()	{return eta;}
+	double get_omsr()	{return omsr;}
+	double get_v1()		{return v1;}
+	double get_sigma()	{return sigma;}
+	double get_kv()		{return kv;}
+	
+	
 
 }
 
