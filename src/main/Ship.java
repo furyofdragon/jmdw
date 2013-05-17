@@ -248,37 +248,21 @@ public class Ship {
 	
 	
 	// Возврат результатов расчёта
-	double getMdw(){
-		return Mdw;
-	}
+	double getMdw(){return Mdw;}
 	
-	double getMv(){
-		return Mv;
-	}
+	double getMv(){return Mv;}
 	
-	double getkp(){
-		return kp;
-	}
+	double getkp(){return kp;}
 	
-	double getMy(){
-		return My;
-	}
+	double getMy(){return My;}
 	
-	double getk0(){
-		return k0;
-	}
+	double getk0(){return k0;}
 	
-	double getk1(){
-		return k1;
-	}
+	double getk1(){return k1;}
 	
-	double getk2(){
-		return k2;
-	}
+	double getk2(){return k2;}
 	
-	double getk3(){
-		return k3;
-	}
+	double getk3(){return k3;}
 	
 	
 	// Возврат исходных данных для печати
@@ -303,15 +287,27 @@ public class Ship {
 	int getsclass(){return sclass;}
 	
 	
-	// for debug
+	// Возврат промежуточных данных расчёта
 	double get_D()		{return D;}
 	double get_eps()	{return eps;}
 	double get_eta()	{return eta;}
+	double get_kd()		{return kd;}
+	double get_kt()		{return kt;}
+	double get_kb()		{return kb;}
+
 	double get_omsr()	{return omsr;}
-	double get_v1()		{return v1;}
-	double get_sigma()	{return sigma;}
 	double get_kv()		{return kv;}
+	double get_omk()	{return omk;}
+	double get_ks()		{return ks;}
+	double get_sigma()	{return sigma;}
+	double get_kmu()	{return kmu;}
 	
+	double get_v1()		{return v1;}
+	double get_b0()		{return b0;}
+	double get_fi0()	{return fi0;}
+	double get_v0()		{return v0;}
+	double get_Tp()		{return Tp;}
+	double get_fi1()	{return fi1;}
 
 }
 
