@@ -29,8 +29,21 @@ public class Ship {
 	private double eta;
 	private double omsr;
 	private double v1;
+	private double kd;
+	private double kt;
+	private double kb;
+	private double ks;
 	private double sigma;
+	private double kmu;
 	private double kv;
+	private double omk;
+	private double Tp;
+	private double b0;
+	private double fi0;
+	private double fi1;
+	private double v0;
+	private double ky;
+	
 	
 	// метод задания значений
 	void set(double L, double B, double T, double Tf, double delta, double I, double Speed, double h, int stype, int sclass){
@@ -71,9 +84,8 @@ public class Ship {
 	void solve(){
 		if ((sclass == 1) || (sclass ==2) || (sclass ==3) || (sclass == 4)) {
 			
-			//double D = g*delta*L*B*T;
 			D = g*delta*L*B*T;
-			double kd = Math.exp(-1.6*(1-delta));
+			kd = Math.exp(-1.6*(1-delta));
 			//double eps = 0.0;
 			eps = 0.0;
 			//double eta = 0.0;
@@ -138,21 +150,21 @@ public class Ship {
 				v1 = 2.26;
 				break;
 			}
-			double kt = Math.exp(-1.14*(T/(eta*h))*(delta/(2.0*delta+1.0)));
-			double kb = (1.0- Math.exp(-0.19*delta*B/(eta*h)))*(eta*h/(0.19*delta*B));
+			kt = Math.exp(-1.14*(T/(eta*h))*(delta/(2.0*delta+1.0)));
+			kb = (1.0- Math.exp(-0.19*delta*B/(eta*h)))*(eta*h/(0.19*delta*B));
 			Mv = 0.255*eps*kd*kt*kb*B*L*L*h;
 			
-			double ks = 0.0;
+			ks = 0.0;
 			switch (stype) {
 			case 1: ks = 123e4; break;   //cargo
 			case 2: ks = 117e4; break;   //passenger
 			case 3: ks = 104e4; break;   //tower
 			}
-			//double sigma = ks*Math.sqrt(I/((1.2+B/(3*T))*D*L*L*L));
+			
 			sigma = ks*Math.sqrt(I/((1.2+B/(3*T))*D*L*L*L));
-			double kmu = 0.0612*(1-0.047*sigma-0.0077*sigma*sigma);
+			kmu = 0.0612*(1-0.047*sigma-0.0077*sigma*sigma);
 			if (kmu < 0) kmu = 0;
-			//double kv =0.0;
+			
 			kv =0.0;
 			double k = 10*eta*h/L;
 			if (k <= 0.3) {
@@ -160,19 +172,19 @@ public class Ship {
 			} else {
 				kv = 0.5-0.8*(k-0.3)+(k-0.3)*(k-0.3);
 			}
-			double omk = omsr+1.92*kv*Speed/L;
+			omk = omsr+1.92*kv*Speed/L;
 			k = omk/sigma;
 			kp = 1+k*k/Math.sqrt((1-k*k)*(1-k*k)+(2*kmu*k)*(2*kmu*k));
 			
-			double Tp = eta*h*(0.68+0.21*kv*Speed/Math.sqrt(L));
-			double b0 = 4.32*Math.sqrt(delta*(B/L)*(T/L));
-			double fi0 = 1-1.03*b0+b0*b0-0.417*b0*b0*b0;
-			double fi1 = 0;
+			Tp = eta*h*(0.68+0.21*kv*Speed/Math.sqrt(L));
+			b0 = 4.32*Math.sqrt(delta*(B/L)*(T/L));
+			fi0 = 1-1.03*b0+b0*b0-0.417*b0*b0*b0;
+			fi1 = 0;
 			if (Tf <= Tp) fi1 = 1;
 			if ((Tp < Tf)&&(Tf < 1.5*Tp)) fi1 = 3-2*Tf/Tp;
 			if (1.5*Tp < Tf) fi1 = 0;
-			double v0 = (0.336+0.104*kv*Speed/Math.sqrt(L))*v1+0.024*kv*Speed;
-			double ky = 5.3e-4*fi0*sigma*v0;
+			v0 = (0.336+0.104*kv*Speed/Math.sqrt(L))*v1+0.024*kv*Speed;
+			ky = 5.3e-4*fi0*sigma*v0;
 			My = ky*fi1*D*L;
 			
 			Mdw = kp*Mv+My;
@@ -299,7 +311,6 @@ public class Ship {
 	double get_v1()		{return v1;}
 	double get_sigma()	{return sigma;}
 	double get_kv()		{return kv;}
-	
 	
 
 }
