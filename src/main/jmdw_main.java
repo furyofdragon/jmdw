@@ -231,7 +231,18 @@ public class jmdw_main {
 				if(btnPassangerShip.getSelection()) stype = 2;
 				if(btnTowingShip.getSelection())    stype = 3;
 				
-				ship.set(L, B, T, Tf, delta, I, Speed, h, stype, sclass);
+				//ship.set(L, B, T, Tf, delta, I, Speed, h, stype, sclass);
+				ship.setL(L);
+				ship.setB(B);
+				ship.setT(T);
+				ship.setTf(Tf);
+				ship.setdelta(delta);
+				ship.setI(I);
+				ship.setSpeed(Speed);
+				ship.seth(h);
+				ship.setstype(stype);
+				ship.setsclass(sclass);
+				
 				ship.solve();
 				btnSaveResults.setEnabled(true);
 				

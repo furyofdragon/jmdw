@@ -45,7 +45,7 @@ public class Ship {
 	private double ky;
 	
 	
-	// метод задания значений
+	// РјРµС‚РѕРґ Р·Р°РґР°РЅРёСЏ Р·РЅР°С‡РµРЅРёР№
 	void set(double L, double B, double T, double Tf, double delta, double I, double Speed, double h, int stype, int sclass){
 		this.L = L;
 		this.B = B;
@@ -80,7 +80,7 @@ public class Ship {
 	void setsclass(int sclass) {this.sclass = sclass;}
 	
 	
-	// метод расчёта
+	// РјРµС‚РѕРґ СЂР°СЃС‡С‘С‚Р°
 	void solve(){
 		if ((sclass == 1) || (sclass ==2) || (sclass ==3) || (sclass == 4)) {
 			
@@ -201,7 +201,7 @@ public class Ship {
 			double k3_1 = 1.0;
 			double k3_2 = 0;
 			switch (sclass) {
-			case 5:   //class пїЅ-пїЅпїЅ
+			case 5:   //class РїС—Р…-РїС—Р…РїС—Р…
 				if (L <= 100.0)					k1 = 0.0147;			//table 2.1.4-1 RRRR
 				if ((L > 100.0)&&(L <= 140.0))	k1 = 0.0147+(0.0137-0.0147)*(L-100.0)/40.0;
 				if (L > 140.0)					k1 = 0.0137;
@@ -213,7 +213,7 @@ public class Ship {
 				if (h > 3.5)					k3 = k3_1;
 				if ((h >= 3.0)&&(h <= 3.5))		k3 = k3_2+(k3_1-k3_2)*(h-3.0)/0.5;
 				break;
-			case 6:   //class пїЅ-пїЅпїЅ
+			case 6:   //class РїС—Р…-РїС—Р…РїС—Р…
 				if (L <= 60.0) 					k1 = 0.0130;			//table 2.2.3-1 RRRR
 				if ((L > 60.0)&&(L <= 100.0))	k1 = 0.0130+(0.0117-0.0130)*(L-60.0)/40.0;
 				if ((L > 100.0)&&(L <= 140.0))	k1 = 0.0117+(0.0102-0.0117)*(L-100.0)/40.0;
@@ -227,7 +227,7 @@ public class Ship {
 				if (h > 2.5)					k3 = k3_1;
 				if ((h >= 2.0)&&(h <= 2.5))		k3 = k3_2+(k3_1-k3_2)*(h-2.0)/0.5;
 				break;
-			case 7:   //class пїЅ-пїЅпїЅ
+			case 7:   //class РїС—Р…-РїС—Р…РїС—Р…
 				if (L <= 60.0) 					k1 = 0.0154;			//table 2.3.2-1 RRRR
 				if ((L > 60.0)&&(L <= 100.0))	k1 = 0.0154+(0.0114-0.0154)*(L-60.0)/40.0;
 				if ((L > 100.0)&&(L <= 140.0))	k1 = 0.0114+(0.0089-0.0114)*(L-100.0)/40.0;
@@ -247,7 +247,7 @@ public class Ship {
 	}
 	
 	
-	// Возврат результатов расчёта
+	// Р’РѕР·РІСЂР°С‚ СЂРµР·СѓР»СЊС‚Р°С‚РѕРІ СЂР°СЃС‡С‘С‚Р°
 	double getMdw(){return Mdw;}
 	
 	double getMv(){return Mv;}
@@ -265,7 +265,7 @@ public class Ship {
 	double getk3(){return k3;}
 	
 	
-	// Возврат исходных данных для печати
+	// Р’РѕР·РІСЂР°С‚ РёСЃС…РѕРґРЅС‹С… РґР°РЅРЅС‹С… РґР»СЏ РїРµС‡Р°С‚Рё
 	double getL(){return L;}
 	
 	double getB(){return B;}
@@ -287,7 +287,7 @@ public class Ship {
 	int getsclass(){return sclass;}
 	
 	
-	// Возврат промежуточных данных расчёта
+	// Р’РѕР·РІСЂР°С‚ РїСЂРѕРјРµР¶СѓС‚РѕС‡РЅС‹С… РґР°РЅРЅС‹С… СЂР°СЃС‡С‘С‚Р°
 	double get_D()		{return D;}
 	double get_eps()	{return eps;}
 	double get_eta()	{return eta;}
@@ -306,6 +306,7 @@ public class Ship {
 	double get_b0()		{return b0;}
 	double get_fi0()	{return fi0;}
 	double get_v0()		{return v0;}
+	double get_ky()		{return ky;}
 	double get_Tp()		{return Tp;}
 	double get_fi1()	{return fi1;}
 
